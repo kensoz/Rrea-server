@@ -1,15 +1,16 @@
 import users from '../models/users.model'
 import areas from '../models/areas.model'
-import dayjs from 'dayjs'
+import dataHandle from '../controllers/units/data.handle'
 import type { ICTXPost } from '../types/ctx.type'
-import type { IDataRequest, IUserSchema } from '../types/user.type'
+import type { IDataRequest, IUserSchema, IDataResponse, Icount, ICountDataResponse } from '../types/user.type'
 import type { IFormSchema } from '../types/form.type'
 
 /**
  *  読み取り
  *  @param ctx koaコンテンツ
  */
-const dataController = async (ctx: ICTXPost<IDataRequest, any>): Promise<void> => {
+
+const dataController = async (ctx: ICTXPost<IDataRequest, ICountDataResponse>): Promise<void> => {
   if (ctx.request.body === undefined) {
     ctx.app.emit('error', 10019, ctx)
     return
@@ -28,23 +29,14 @@ const dataController = async (ctx: ICTXPost<IDataRequest, any>): Promise<void> =
       { _id: 0 },
     )
 
-    // 仮エリアデータ構成
-    const data: IUserSchema[] = JSON.parse(JSON.stringify(user))
-    data.map((i: IUserSchema): void => {
-      const areaRandom: IFormSchema = area[Math.floor(Math.random() * area.length)]
-      Object.assign(i, {
-        area: areaRandom.text,
-        areaCode: areaRandom.value,
-        YYYYMMDD: dayjs().format('YYYY-MM-DD'),
-        HHMMss: dayjs().format('HH:mm:ss'),
-      })
-    })
+    // データ処理
+    const data: IDataResponse = JSON.parse(JSON.stringify(user))
+    const result: ICountDataResponse = dataHandle(data, area, req.areaCode)
 
     ctx.body = {
       code: 10011,
       message: 'data取得成功',
-      // エリアフィルター
-      result: req.areaCode === '' ? data : data.filter((i: IUserSchema): boolean => i.areaCode === req.areaCode),
+      result: result,
     }
     ctx.app.emit('log', 'data読み取り')
   } catch {

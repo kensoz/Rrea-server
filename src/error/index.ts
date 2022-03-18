@@ -4,8 +4,8 @@ import errorHandle from './errorHandle'
 
 /**
  *  エラー処理
- *  @param code グロバルエラーコード
- *  @param ctx koaコンテンツ
+ *  @param {number}  code グロバルエラーコード
+ *  @param {*} ctx koaコンテンツ
  */
 
 const error = async (code: number, ctx: Context): Promise<void> => {

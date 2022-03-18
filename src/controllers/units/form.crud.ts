@@ -4,9 +4,9 @@ import type { IFormSchema, IFormResponse, IFormKey } from '../../types/form.type
 
 /**
  *  読み取り
- *  @param model フォーム類のコレクション
- *  @param condition 読み取りの条件
- *  @param ctx koaコンテンツ
+ *  @param {Model<IFormSchema>}model フォーム類のコレクション
+ *  @param {Object | {}} condition 読み取りの条件
+ *  @param {*} ctx koaコンテンツ
  */
 
 const find = async (model: Model<IFormSchema>, condition: any = {}, ctx: ICTXGet<{}, IFormResponse>): Promise<void> => {
@@ -28,8 +28,8 @@ const find = async (model: Model<IFormSchema>, condition: any = {}, ctx: ICTXGet
 
 /**
  *  追加
- *  @param model フォーム類のコレクション
- *  @param ctx koaコンテンツ
+ *  @param {Model<IFormSchema>} model フォーム類のコレクション
+ *  @param {*} ctx koaコンテンツ
  */
 
 const create = async (model: Model<IFormSchema>, ctx: ICTXPost<IFormSchema, ''>): Promise<void> => {
@@ -52,8 +52,8 @@ const create = async (model: Model<IFormSchema>, ctx: ICTXPost<IFormSchema, ''>)
 
 /**
  *  更新
- *  @param model フォーム類のコレクション
- *  @param ctx koaコンテンツ
+ *  @param {Model<IFormSchema>} model フォーム類のコレクション
+ *  @param {*} ctx koaコンテンツ
  */
 
 const update = async (model: Model<IFormSchema>, ctx: ICTXPut<IFormKey, IFormSchema, ''>): Promise<void> => {
@@ -75,8 +75,8 @@ const update = async (model: Model<IFormSchema>, ctx: ICTXPut<IFormKey, IFormSch
 
 /**
  *  削除
- *  @param model フォーム類のコレクション
- *  @param ctx koaコンテンツ
+ *  @param {Model<IFormSchema>} model フォーム類のコレクション
+ *  @param {*} ctx koaコンテンツ
  */
 
 const remove = async (model: Model<IFormSchema>, ctx: ICTXDelete<IFormKey, ''>): Promise<void> => {

@@ -1,5 +1,9 @@
 import Log from 'log4js'
 
+// logサイズ
+const max: number = 10000
+
+// log4jsコンフィグ
 Log.configure({
   appenders: {
     info: {
@@ -7,14 +11,14 @@ Log.configure({
       filename: 'logs/info.log',
       pattern: 'yyyy-MM-dd.log',
       encoding: 'utf-8',
-      maxLogSize: 1000,
+      maxLogSize: max,
     },
     error: {
       type: 'dateFile',
       filename: 'logs/error.log',
       pattern: 'yyyy-MM-dd.log',
       encoding: 'utf-8',
-      maxLogSize: 1000,
+      maxLogSize: max,
     },
   },
 
@@ -27,7 +31,7 @@ Log.configure({
 
 /**
  *  エラーログ処理
- *  @param content ログコンテンツ
+ *  @param {*} content ログコンテンツ
  */
 
 const logError = (content: string): void => {
@@ -37,7 +41,7 @@ const logError = (content: string): void => {
 
 /**
  *  一般的なログ処理
- *  @param content ログコンテンツ
+ *  @param {*} content ログコンテンツ
  */
 
 const logInfo = (content: string): void => {

@@ -4,9 +4,10 @@ import koaLogger from 'koa-logger'
 
 import config from './config'
 import routers from './router'
+import apolloServer from './graphql'
 import error from './error'
 import { logInfo } from './log'
-import connectMongoDB from './database'
+import { connectMongoDB } from './database'
 
 const app = new Koa()
 
@@ -22,8 +23,11 @@ app.use(routers.routes()).use(routers.allowedMethods())
 app.on('error', error)
 app.on('log', logInfo)
 
-// サーバ起動
-app.listen(config.host, async (): Promise<void> => {
-  console.log(`server running on port ${config.host}`)
+// Apollo Graphql起動
+apolloServer(app)
+
+// サーバ起動と導出
+export default app.listen(config.host, async (): Promise<void> => {
+  console.log(`server running on port ${config.host} 🚀`)
   process.env.NODE_ENV === 'production' && logInfo('server start')
 })

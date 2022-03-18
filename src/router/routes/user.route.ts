@@ -10,9 +10,9 @@ userRouter.get('/', userController.userFind)
 userRouter.post('/', userController.userAdd)
 
 // 更新
-userRouter.put('/:numberCode', userController.userUpdate)
+userRouter.put('/:id', userController.userUpdate)
 
 // 削除
-userRouter.delete('/:numberCode', userController.userDelete)
+userRouter.delete('/:id', userController.userDelete)
 
 export default userRouter

@@ -42,6 +42,7 @@ const login = async (ctx: ICTXPost<IAuth, ''>): Promise<void> => {
 
 // ログアウト
 const logout = async (ctx: ICTXDelete<'id', ''>): Promise<void> => {
+  // TODO console占位
   await console.log(ctx.params.id)
   ctx.app.emit('log', `ログアウト--${ctx.params.id}`)
 

@@ -7,6 +7,12 @@ let error: IResponse = {
   result: '',
 }
 
+/**
+ *  エラーコード処理
+ *  @param {number}  code グロバルエラーコード
+ *  @return エラーレスポンス
+ */
+
 const handle = (code: number): IResponse => {
   switch (code) {
     case 10020:

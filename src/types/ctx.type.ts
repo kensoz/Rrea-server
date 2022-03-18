@@ -1,6 +1,7 @@
 import { Context, Request } from 'koa'
 import { ParsedUrlQuery } from 'querystring'
 
+// CTXのタイプ
 // CTXのRequest
 interface IRequest<RequestBody = any> extends Request {
   body?: RequestBody

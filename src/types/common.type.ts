@@ -1,3 +1,4 @@
+// 通用タイプ
 // コンフィグ
 export interface IConfig {
   readonly host: number

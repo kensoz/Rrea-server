@@ -40,9 +40,7 @@ const userAdd = async (ctx: ICTXPost<IUserSchema, ''>): Promise<void> => {
         result: '',
       }
     })
-    .catch((err): void => {
-      console.log(err)
-
+    .catch((): void => {
       ctx.app.emit('error', 10014, ctx)
     })
 }
@@ -53,8 +51,10 @@ const userAdd = async (ctx: ICTXPost<IUserSchema, ''>): Promise<void> => {
  */
 
 const userUpdate = async (ctx: ICTXPut<IUserKey, IUserSchema, ''>): Promise<void> => {
+  console.log(ctx.params.id)
+
   await users
-    .updateOne({ numberCode: ctx.params.numberCode }, ctx.request.body)
+    .updateOne({ id: ctx.params.id }, ctx.request.body)
     .then((): void => {
       ctx.body = {
         code: 10015,
@@ -73,8 +73,10 @@ const userUpdate = async (ctx: ICTXPut<IUserKey, IUserSchema, ''>): Promise<void
  */
 
 const userDelete = async (ctx: ICTXDelete<IUserKey, ''>): Promise<void> => {
+  console.log(ctx.params.id)
+
   await users
-    .deleteOne({ numberCode: ctx.params.numberCode })
+    .deleteOne({ id: ctx.params.id })
     .then((): void => {
       ctx.body = {
         code: 10017,

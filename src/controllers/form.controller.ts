@@ -7,7 +7,7 @@ import type { IFormSchema, IFormGroupResponse } from '../types/form.type'
 
 /**
  *  読み取り
- *  @param ctx koaコンテンツ
+ *  @param {*} ctx koaコンテンツ
  */
 
 const formController = async (ctx: ICTXGet<{}, IFormGroupResponse>): Promise<void> => {

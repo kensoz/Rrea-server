@@ -1,5 +1,13 @@
 // user collection
 // ユーザー関連のタイプ
+// data取得apiのパラメータ
+export interface IDataRequest {
+  areaCode: string
+  jobCode: string[]
+  nameCode: string[]
+  raceCode: string[]
+}
+
 export interface IUserSchema {
   id: string
   name: string
@@ -17,14 +25,20 @@ export interface IUserSchema {
   HHMMss?: string
 }
 
-export type IUserKey = 'numberCode'
+// 在席情報
+export interface Icount {
+  area1?: number
+  area2?: number
+  area3?: number
+  area4?: number
+  area5?: number
+}
+
+export type IUserKey = 'id'
 
 export type IDataResponse = Array<IUserSchema>
 
-// data取得apiのパラメータ
-export interface IDataRequest {
-  areaCode: string
-  jobCode: string[]
-  nameCode: string[]
-  raceCode: string[]
+export interface ICountDataResponse {
+  count: Icount
+  user: IDataResponse
 }

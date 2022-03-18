@@ -8,7 +8,7 @@ const development: IConfig = {
   dataBaseUrl: 'mongodb://localhost:27017/',
 }
 
-// デプロイ
+// 本番環境
 const production: IConfig = {
   host: 7001,
   apiPrefix: '/api/v1',
