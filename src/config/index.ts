@@ -9,11 +9,12 @@ const development: IConfig = {
 }
 
 // 本番環境
+// docker環境
 const production: IConfig = {
   host: 7001,
   apiPrefix: '/api/v1',
   dataBase: 'areadb',
-  dataBaseUrl: 'mongodb://localhost:27017/',
+  dataBaseUrl: 'mongodb://admin:admin@database:27017/',
 }
 
 const config: IConfig = process.env.NODE_ENV === 'production' ? production : development
