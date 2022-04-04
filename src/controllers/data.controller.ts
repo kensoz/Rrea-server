@@ -2,7 +2,7 @@ import users from '../models/users.model'
 import areas from '../models/areas.model'
 import dataHandle from '../controllers/units/data.handle'
 import type { ICTXPost } from '../types/ctx.type'
-import type { IDataRequest, IUserSchema, IDataResponse, Icount, ICountDataResponse } from '../types/user.type'
+import type { IDataRequest, IUserSchema, IDataResponse, ICount, IHandleDataResponse } from '../types/user.type'
 import type { IFormSchema } from '../types/form.type'
 
 /**
@@ -10,7 +10,7 @@ import type { IFormSchema } from '../types/form.type'
  *  @param ctx koaコンテンツ
  */
 
-const dataController = async (ctx: ICTXPost<IDataRequest, ICountDataResponse>): Promise<void> => {
+const dataController = async (ctx: ICTXPost<IDataRequest, IHandleDataResponse>): Promise<void> => {
   if (ctx.request.body === undefined) {
     ctx.app.emit('error', 10019, ctx)
     return
@@ -31,7 +31,7 @@ const dataController = async (ctx: ICTXPost<IDataRequest, ICountDataResponse>): 
 
     // データ処理
     const data: IDataResponse = JSON.parse(JSON.stringify(user))
-    const result: ICountDataResponse = dataHandle(data, area, req.areaCode)
+    const result: IHandleDataResponse = dataHandle(data, area, req.areaCode)
 
     ctx.body = {
       code: 10011,

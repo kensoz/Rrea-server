@@ -1,25 +1,22 @@
 import dayjs from 'dayjs'
-import type { IUserSchema, IDataResponse, Icount, ICountDataResponse } from '../../types/user.type'
+import type { IUserSchema, IDataResponse, ICount, IHandleDataResponse } from '../../types/user.type'
 import type { IFormSchema } from '../../types/form.type'
-
-let countPrototype: Icount = {
-  area1: 0,
-  area2: 0,
-  area3: 0,
-  area4: 0,
-  area5: 0,
-}
 
 /**
  *  graphql data 読み取り
  *  @param {Array} data ユーザーのデータ
  *  @param {Array} area エリアのデータ
+ *  @param {string} code 選択されたエリア番号
  *  @return data & count
  */
 
-const dataHandle = (data: IDataResponse, area: IFormSchema[], code: string): ICountDataResponse => {
-  // 仮エリアデータ構成
-  const areaKey: string[] = []
+const dataHandle = (data: IDataResponse, area: IFormSchema[], code: string): IHandleDataResponse => {
+  let count: ICount[] = []
+  for (let i = 0; i < 5; i++) {
+    count.push({ count: 0 })
+  }
+
+  // 仮エリアデータ作成
   data.map((i: IUserSchema): void => {
     const areaRandom: IFormSchema = area[Math.floor(Math.random() * area.length)]
     Object.assign(i, {
@@ -29,22 +26,30 @@ const dataHandle = (data: IDataResponse, area: IFormSchema[], code: string): ICo
       HHMMss: dayjs().format('HH:mm:ss'),
     })
 
-    areaKey.push(areaRandom.value)
+    // エリアの数集計
+    count[Number(areaRandom.value) - 1].count++
+  })
+
+  // 指定したエリアを絞り込み、ソート順処理
+  const user: IDataResponse = code === '' ? data : data.filter((i: IUserSchema): boolean => i.areaCode === code)
+  user.sort((a: IUserSchema, b: IUserSchema): number => {
+    return Number(a.areaCode) - Number(b.areaCode)
   })
 
   // 仮データによって在席情報を作成
-  const count: Icount = Object.assign(
-    countPrototype,
-    areaKey.reduce((prev: Icount | {}, next: string): Icount => {
-      //@ts-ignore
-      prev[`area${next}`] = prev[`area${next}`] + 1 || 1
-      return prev
-    }, {}),
-  )
+  area.map((item: IFormSchema, index: number): void => {
+    Object.assign(count[index], { area: item.text }, { value: Number(item.value) })
+  })
+  // 全員総数作成
+  count.unshift({
+    count: data.length,
+    area: '全員',
+    value: 0,
+  })
 
   return {
     count,
-    user: code === '' ? data : data.filter((i: IUserSchema): boolean => i.areaCode === code),
+    user,
   }
 }
 

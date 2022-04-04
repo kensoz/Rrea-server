@@ -5,7 +5,7 @@ FROM node:16.3.0
 LABEL maintainer="kensoz"
 
 # ワークスペース指定
-WORKDIR /usr/src/backend
+WORKDIR /usr/src/server
 
 # package.jsonとyarn.lockコピー
 COPY ["package.json", "yarn.lock", "./"]

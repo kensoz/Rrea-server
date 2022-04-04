@@ -4,7 +4,7 @@ import errorGraphQL from '../../error/errorGraphQL'
 import dataHandle from '../../controllers/units/data.handle'
 import { Context } from 'koa'
 import type { IFormSchema } from '../../types/form.type'
-import type { IDataRequest, IUserSchema, IDataResponse, ICountDataResponse } from '../../types/user.type'
+import type { IDataRequest, IUserSchema, IDataResponse, IHandleDataResponse } from '../../types/user.type'
 
 /**
  *  graphql data 読み取り
@@ -13,7 +13,7 @@ import type { IDataRequest, IUserSchema, IDataResponse, ICountDataResponse } fro
  *  @return data & count
  */
 
-const dataResolver = async (args: IDataRequest, ctx: Context): Promise<ICountDataResponse> => {
+const dataResolver = async (args: IDataRequest, ctx: Context): Promise<IHandleDataResponse> => {
   try {
     ctx.app.emit('log', 'graphqldata読み取り')
 
@@ -30,7 +30,7 @@ const dataResolver = async (args: IDataRequest, ctx: Context): Promise<ICountDat
 
     // データ処理
     const data: IDataResponse = JSON.parse(JSON.stringify(user))
-    const result: ICountDataResponse = dataHandle(data, area, args.areaCode)
+    const result: IHandleDataResponse = dataHandle(data, area, args.areaCode)
 
     return result
   } catch {

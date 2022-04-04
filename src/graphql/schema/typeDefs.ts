@@ -10,11 +10,9 @@ const typeDefs = gql`
 
   "count"
   type Count {
-    area1: Int
-    area2: Int
-    area3: Int
-    area4: Int
-    area5: Int
+    count: Int
+    area: String
+    value: Int
   }
 
   "user"
@@ -37,7 +35,7 @@ const typeDefs = gql`
 
   "data"
   type Data {
-    count: Count
+    count: [Count]
     user: [User]
   }
 

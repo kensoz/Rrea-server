@@ -26,19 +26,17 @@ export interface IUserSchema {
 }
 
 // 在席情報
-export interface Icount {
-  area1?: number
-  area2?: number
-  area3?: number
-  area4?: number
-  area5?: number
+export interface ICount {
+  count: number
+  area?: string
+  value?: number
 }
 
 export type IUserKey = 'id'
 
 export type IDataResponse = Array<IUserSchema>
 
-export interface ICountDataResponse {
-  count: Icount
+export interface IHandleDataResponse {
+  count: ICount[]
   user: IDataResponse
 }
