@@ -5,7 +5,7 @@ const development: IConfig = {
   host: 7001,
   apiPrefix: '/api/v1',
   dataBase: 'areadb',
-  dataBaseUrl: 'mongodb://localhost:27017/',
+  dataBaseUrl: 'mongodb://127.0.0.1:27017/',
 }
 
 // 本番環境
