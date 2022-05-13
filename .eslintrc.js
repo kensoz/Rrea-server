@@ -24,8 +24,4 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
   ],
-
-  rules: {
-    'prettier/prettier': 'error',
-  },
 }
