@@ -17,6 +17,7 @@ TODO
 - 💽 mangoDB + mongoose
 - 📑 Eslint + Prettier
 - 🔌 Jest
+- 📦 Yarn
 - 🔻 RESTful API & GraphQL
 
 ### 使用
@@ -62,10 +63,4 @@ yarn start
 ```bash
 yarn resetLog
 ```
-
-###### 
-
-### 最後
-
-Enjoy !
 
