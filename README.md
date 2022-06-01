@@ -19,6 +19,7 @@ APIを提供しているBE、二つの部分で構成
 - 💽 mangoDB + mongoose
 - 📑 Eslint + Prettier
 - 🔌 Jest
+- 🏭 rollup.js
 - 📦 Yarn
 - 🔻 RESTful API & GraphQL
 
@@ -36,13 +37,13 @@ yarn install
 yarn dev
 ```
 
-###### TSコンパイラ（TSC）
+###### rollup.js実行
 
 ```bash
-yarn compile
+yarn rollup:build
 ```
 
-###### プロジェクトコンパイラ
+###### rollup.jsでプロジェクトコンパイラ
 
 ```bash
 yarn build

@@ -1,15 +1,15 @@
 {
-  "name": "koa-ts-mongo",
+  "name": "rrea-server",
   "version": "1.0.0",
-  "main": "dist/app.js",
+  "main": "dist/app.min.js",
   "author": "lian",
   "license": "MIT",
   "scripts": {
+    "dev": "set NODE_ENV=development && ts-node-dev --respawn src/app.ts",
     "resetLog": "rimraf logs/*",
     "resetDist": "rimraf dist/*",
-    "dev": "set NODE_ENV=development && ts-node-dev --respawn src/app.ts",
-    "compile": "tsc",
-    "build": "npm-run-all resetDist compile",
+    "rollup:build": "rollup -c",
+    "build": "npm-run-all resetDist rollup:build",
     "start": "set NODE_ENV=production && node .",
     "test": "jest",
     "test-cover": "jest --coverage"
@@ -20,6 +20,7 @@
     "koa-router": "^10.1.1"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.0",
     "@types/jest": "^27.4.1",
     "@types/koa": "^2.13.4",
     "@types/koa-logger": "^3.1.2",
@@ -39,6 +40,9 @@
     "mongoose": "^6.3.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
+    "rollup": "^2.75.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
     "supertest": "^6.2.2",
     "ts-jest": "^27.1.3",
     "ts-node-dev": "^1.1.8",
