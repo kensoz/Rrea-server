@@ -70,4 +70,4 @@ yarn start
 
 ## 資料
 
-+ [エラーコード対照表](http://localhost:4042/)
++ [エラーコード対照表](https://github.com/kensoz/Rrea-server/blob/master/docs/error.md)
