@@ -1,18 +1,23 @@
 # Rrea-Server
 
-### Rreaとは
+![a Node.js Project](https://img.shields.io/badge/Node.js-Back--End-339933.svg?logo=node.js&style=flat-square) ![License](https://img.shields.io/badge/License-MIT-0284c7.svg?logo=&style=flat-square)
 
-rreaとはメンバー位置管理システムで
-メンバー用のチームメンバー確認サイトと、管理者用の管理サイトのFE
-APIを提供しているBE、二つの部分で構成
+Demo:  **[Client]() | [Admin]()**     GitHub:  **[Client]() | [Admin]() | [Client-Collection]()**
 
-### メイン機能
+##### Rrea-Serverとは
+
+メンバー位置と情報の管理システムのAPIサーバ(BE Server)です。\
+APIサーバ(Server)、[メンバー用サイト(Client)]()、[管理者用サイト(Admin)]()に分けている仕組みです。
+
+##### メイン機能
 
 + ユーザー認証システム
-+ APIサーバ－（RESTful API & GraphQL）
-+ データベース接続、ログ処理などBEの基本機能
++ RESTful API & GraphQL API提供
++ DB接続、ログ処理などBEの基本機能
 
-### スタック
+
+
+## スタック
 
 - ⚙️ TypeScript
 - ⚡️ Koa.js
@@ -21,49 +26,48 @@ APIを提供しているBE、二つの部分で構成
 - 🔌 Jest
 - 🏭 rollup.js
 - 📦 Yarn
-- 🔻 RESTful API & GraphQL
+- 🔻 RESTful API & GraphQL API
 
-### 使用
 
-###### インストール
+
+## 使用
+
+##### インストール
 
 ```bash
 yarn install
 ```
 
-###### 開発（NODE_ENV=development）
+##### 開発（Dev）
+
+http://localhost:7001で開発環境を実行
 
 ```bash
 yarn dev
 ```
 
-###### rollup.js実行
+##### ビルド
 
-```bash
-yarn rollup:build
-```
-
-###### rollup.jsでプロジェクトコンパイラ
+rollup.jsによるバンドル、distフォルダを作成
 
 ```bash
 yarn build
 ```
 
-###### テスト
+##### テスト
 
 ```bash
 yarn test
 ```
 
-###### プロジェクト起動（NODE_ENV=production）
+##### プロジェクト起動（Prod）
 
 ```bash
 yarn start
 ```
 
-###### ログクリア
 
-```bash
-yarn resetLog
-```
 
+## 資料
+
++ [エラーコード対照表](http://localhost:4042/)
