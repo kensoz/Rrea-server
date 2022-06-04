@@ -2,12 +2,12 @@
 
 ![a Node.js Project](https://img.shields.io/badge/Node.js-Back--End-339933.svg?logo=node.js&style=flat-square) ![License](https://img.shields.io/badge/License-MIT-0284c7.svg?logo=&style=flat-square)
 
-Demo:  **[Client]() | [Admin]()**     GitHub:  **[Client]() | [Admin]() | [Client-Collection]()**
+Demo:  **[Client]() | [Admin]()**  ・  GitHub:  **[Client](https://github.com/kensoz/Rrea-client) | [Admin]() | [Client-Collection](https://github.com/kensoz/Rrea-client-collection)**
 
 ##### Rrea-Serverとは
 
 メンバー位置と情報の管理システムのAPIサーバ(BE Server)です。\
-APIサーバ(Server)、[メンバー用サイト(Client)]()、[管理者用サイト(Admin)]()に分けている仕組みです。
+APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/kensoz/Rrea-client)、[管理者用サイト(Admin)]()にFEとBEを分けている仕組みです。
 
 ##### メイン機能
 
@@ -40,7 +40,7 @@ yarn install
 
 ##### 開発（Dev）
 
-http://localhost:7001で開発環境を実行
+[http://localhost:7001](http://localhost:7001)で起動
 
 ```bash
 yarn dev
