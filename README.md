@@ -1,6 +1,6 @@
 # Rrea-Server
 
-![Coverage](https://img.shields.io/badge/Coverage-95%-84CC16.svg?style=flat-square)  ![Node](https://img.shields.io/badge/Node.js-v18.3.0-84CC16.svg?style=flat-square)  ![License](https://img.shields.io/badge/License-MIT-0284C7.svg?logo=&style=flat-square)
+![Coverage](https://img.shields.io/badge/Coverage-95%25-84CC16.svg?style=flat-square)  ![Node](https://img.shields.io/badge/Node.js-v18.3.0-84CC16.svg?style=flat-square)  ![License](https://img.shields.io/badge/License-MIT-0284C7.svg?logo=&style=flat-square)
 
 Demo:  **[Client]() | [Admin]()**  ・  GitHub:  **[Client](https://github.com/kensoz/Rrea-client) | [Admin]() | [Client-Collection](https://github.com/kensoz/Rrea-client-collection)**
 
