@@ -5,7 +5,7 @@ import config from '../config'
 const connectMongoDB = async (): Promise<void> => {
   await connect(config.dataBaseUrl + config.dataBase)
     .then((): void => {
-      console.log('mongodb connect suucess')
+      console.log('mongodb connect success')
     })
     .catch((): void => {
       console.log('mongodb connect failed')
@@ -16,7 +16,7 @@ const connectMongoDB = async (): Promise<void> => {
 const disconnectMongoDB = async (): Promise<void> => {
   await disconnect()
     .then((): void => {
-      console.log('mongodb disconnect suucess')
+      console.log('mongodb disconnect success')
     })
     .catch((): void => {
       console.log('mongodb disconnect failed')
