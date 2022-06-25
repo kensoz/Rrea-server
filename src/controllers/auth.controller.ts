@@ -4,10 +4,11 @@ import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
 import type { IAuth, IAuthResponse } from '../types/auth.type'
 
 // ログイン
-const login = async (ctx: ICTXPost<IAuth, ''>): Promise<void> => {
+const login = async (ctx: ICTXPost<IAuth, IAuth | ''>): Promise<void> => {
   await auths
     .find({ id: ctx.request.body?.id }, { _id: 0 })
     .then((res): void => {
+      // 無効なID
       if (res.length === 0) {
         ctx.body = {
           code: 10002,
@@ -18,16 +19,18 @@ const login = async (ctx: ICTXPost<IAuth, ''>): Promise<void> => {
         return
       }
 
+      // ログイン成功
       if (ctx.request.body?.passWord === res[0].passWord) {
         ctx.body = {
           code: 10001,
           message: 'ログイン成功しました',
-          result: '',
+          result: Object.assign(res[0], { passWord: '*****' }),
         }
 
         ctx.app.emit('log', `ログイン--${ctx.request.body?.passWord}`)
         auths.updateOne({ id: res[0].id }, { time: dayjs().format('YYYY-MM-DD HH:mm:ss') }).then()
       } else {
+        // 無効なパスワード
         ctx.body = {
           code: 10003,
           message: 'パスワードが間違いました',
@@ -42,7 +45,7 @@ const login = async (ctx: ICTXPost<IAuth, ''>): Promise<void> => {
 
 // ログアウト
 const logout = async (ctx: ICTXDelete<'id', ''>): Promise<void> => {
-  // TODO console占位
+  // TODO console占位，需要添加鉴权
   await console.log(ctx.params.id)
   ctx.app.emit('log', `ログアウト--${ctx.params.id}`)
 
