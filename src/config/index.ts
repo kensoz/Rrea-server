@@ -13,6 +13,8 @@ const development: IConfig = {
   dataBaseUrl: 'mongodb://127.0.0.1:27017/',
   secret: 'maeda',
   jwtLimitTime: time,
+  passwordKey: '1234123412ABCDEF',
+  passwordIV: 'ABCDEF1234123412',
 }
 
 // 本番環境
@@ -24,6 +26,8 @@ const production: IConfig = {
   dataBaseUrl: 'mongodb://admin:admin@database:27017/',
   secret: 'maeda',
   jwtLimitTime: time,
+  passwordKey: '1234123412ABCDEF',
+  passwordIV: 'ABCDEF1234123412',
 }
 
 const config: IConfig = process.env.NODE_ENV === 'production' ? production : development

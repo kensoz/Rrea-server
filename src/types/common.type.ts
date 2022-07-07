@@ -11,4 +11,6 @@ export interface IConfig {
   readonly dataBaseUrl: string
   readonly secret: string
   readonly jwtLimitTime: number
+  readonly passwordKey: string
+  readonly passwordIV: string
 }

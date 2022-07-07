@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import config from '../config'
+import CryptoJS from 'crypto-js'
 import auths from '../models/auth.model'
 import jsonwebtoken from 'jsonwebtoken'
 import type { IAuth, IAuthResponse } from '../types/auth.type'
@@ -8,11 +9,30 @@ import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
 // ----- 管理者認証関係 controller -----
 
 /**
+ *  暗号解読
+ *  @param {string} word 暗号化したパスワード
+ *  @return {string} パスワード
+ */
+
+const decrypt = (word: string) => {
+  const key = CryptoJS.enc.Utf8.parse(config.passwordKey)
+  const iv = CryptoJS.enc.Utf8.parse(config.passwordIV)
+  const encryptedHexStr = CryptoJS.enc.Hex.parse(word)
+  const srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr)
+  const decrypt = CryptoJS.AES.decrypt(srcs, key, { iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 })
+  const decryptedStr = decrypt.toString(CryptoJS.enc.Utf8)
+  return decryptedStr.toString()
+}
+
+/**
  *  ログイン
  *  @param {ICTXPost<IAuth, IAuth | ''>} ctx koaコンテンツ
  */
 
 const login = async (ctx: ICTXPost<IAuth, IAuth | ''>): Promise<void> => {
+  // 暗号解読
+  const password: string = await decrypt(ctx.request.body!.passWord)
+
   await auths
     .find({ id: ctx.request.body?.id }, { _id: 0 })
     .then((res): void => {
@@ -28,7 +48,7 @@ const login = async (ctx: ICTXPost<IAuth, IAuth | ''>): Promise<void> => {
       }
 
       // ログイン成功
-      if (ctx.request.body?.passWord === res[0].passWord) {
+      if (password === res[0].passWord) {
         // token作成
         const token: string = jsonwebtoken.sign(
           {
