@@ -25,7 +25,7 @@ const error = async (code: number, ctx: Context): Promise<void> => {
   switch (code) {
     case 10022:
       status = 400
-      body.message = '無効なパラメータ'
+      body.message = '無効なID'
       break
     case 10020:
       status = 404

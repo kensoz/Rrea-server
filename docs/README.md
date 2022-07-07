@@ -1,4 +1,3 @@
 ## 資料
 
-+ error : エラーコード一覧表
-+ specification.md : 仕様書
++ [error.md](https://github.com/kensoz/Rrea-server/blob/master/docs/error.md) : エラーコード一覧表

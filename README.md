@@ -15,7 +15,7 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 + RESTful API & GraphQL提供
 + DB、エラー、ログ処理のサーバー側の基本機能
 + Koa.jsプロジェクトTypeScript化
-+ rollupによるバンドル、Jestによる自動テスト
++ rollup.jsによるバンドル、Jestによる自動テスト
 
 
 
