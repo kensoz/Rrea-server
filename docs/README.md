@@ -1,4 +1,4 @@
 ## 資料
 
-+ エラーコード一覧表
-+ Postman JSON
++ error : エラーコード一覧表
++ specification.md : 仕様書

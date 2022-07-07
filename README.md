@@ -11,9 +11,11 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 
 ##### メイン機能
 
-+ ユーザー認証システム
-+ RESTful API & GraphQL API提供
-+ DB接続、ログ処理などBEの基本機能
++ ユーザー認証&権限システム、JWT認証、パスワード暗号化
++ RESTful API & GraphQL提供
++ DB、エラー、ログ処理のサーバー側の基本機能
++ Koa.jsプロジェクトTypeScript化
++ rollupによるバンドル、Jestによる自動テスト
 
 
 
@@ -26,7 +28,7 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 - 🔌 Jest
 - 🏭 rollup.js
 - 📦 Yarn
-- 🔻 RESTful API & GraphQL API
+- 🔻 RESTful API & GraphQL
 
 
 
@@ -71,4 +73,3 @@ yarn start
 ## 資料
 
 + [エラーコード対照表](https://github.com/kensoz/Rrea-server/blob/master/docs/error.md)
-+ Postman JSON
