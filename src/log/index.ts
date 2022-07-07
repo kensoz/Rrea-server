@@ -1,5 +1,6 @@
 import Log from 'log4js'
 
+// ----- サーバーログ処理 -----
 // logサイズ
 const max: number = 10000
 
@@ -31,7 +32,7 @@ Log.configure({
 
 /**
  *  エラーログ処理
- *  @param {*} content ログコンテンツ
+ *  @param {string} content ログの内容
  */
 
 const logError = (content: string): void => {
@@ -41,7 +42,7 @@ const logError = (content: string): void => {
 
 /**
  *  一般的なログ処理
- *  @param {*} content ログコンテンツ
+ *  @param {string} content ログの内容
  */
 
 const logInfo = (content: string): void => {

@@ -1,3 +1,9 @@
+// ###########################
+// *
+// * koa ctx タイプ
+// *
+// ###########################
+
 import { Context, Request } from 'koa'
 import { ParsedUrlQuery } from 'querystring'
 

@@ -3,6 +3,7 @@ import unit from './units/form.crud'
 import type { ICTXGet } from '../types/ctx.type'
 import type { IFormResponse } from '../types/form.type'
 
+// ----- エリアCRUD controller -----
 const areaController = async (ctx: ICTXGet<{}, IFormResponse>): Promise<void> => {
   await unit.find(areas, {}, ctx)
 }

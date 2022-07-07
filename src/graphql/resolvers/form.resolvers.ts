@@ -6,12 +6,14 @@ import errorGraphQL from '../../error/errorGraphQL'
 import { Context } from 'koa'
 import type { IFormSchema, IFormGroupResponse } from '../../types/form.type'
 
+// ----- フォーム resolvers -----
+
 type key = 'area' | 'name' | 'race' | 'job'
 
 /**
  *  graphql form 読み取り
  *  @param {string} key 'area' | 'name' | 'race' | 'job'
- *  @param {*} ctx Context
+ *  @param {Context} ctx Context
  *  @return area | name | race | job
  */
 

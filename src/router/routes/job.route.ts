@@ -1,5 +1,8 @@
 import Router from 'koa-router'
 import jobController from '../../controllers/job.controller'
+import checkPermission from '../../middleware/jwt/checkPermission'
+
+// ----- 職務 router -----
 
 const jobRouter = new Router()
 
@@ -7,12 +10,12 @@ const jobRouter = new Router()
 jobRouter.get('/', jobController.jobFind)
 
 // 追加
-jobRouter.post('/', jobController.jobadd)
+jobRouter.post('/', checkPermission, jobController.jobadd)
 
 // 更新
-jobRouter.put('/:value', jobController.jobUpdate)
+jobRouter.put('/:value', checkPermission, jobController.jobUpdate)
 
 // 削除
-jobRouter.delete('/:value', jobController.jobdelete)
+jobRouter.delete('/:value', checkPermission, jobController.jobdelete)
 
 export default jobRouter

@@ -1,6 +1,13 @@
 import { ApolloError } from 'apollo-server-errors'
 
-// カスタマイズのApollo GraphQLエラー処理
+// ----- GraphQL エラー処理 -----
+
+/**
+ *  カスタマイズのApollo GraphQLエラー処理
+ *  @param {string} message テキスト
+ *  @param {string} code エラーコード
+ */
+
 class errorGraphQL extends ApolloError {
   constructor(message: string, code: string) {
     super(message, code)

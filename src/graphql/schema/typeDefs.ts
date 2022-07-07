@@ -1,5 +1,6 @@
 import { gql } from 'apollo-server-koa'
 
+// ----- GraphQL タイプ -----
 // typeDefs
 const typeDefs = gql`
   "form"

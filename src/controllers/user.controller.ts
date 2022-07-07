@@ -2,10 +2,10 @@ import users from '../models/users.model'
 import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
 import type { IUserSchema, IUserKey } from '../types/user.type'
 
-// TODO 简化或特化user控制器
+// ----- メンバーCRUD controller -----
 /**
  *  読み取り
- *  @param ctx koaコンテンツget
+ *  @param {ICTXGet<{}, IUserSchema[]>} ctx koaコンテンツget
  */
 
 const userFind = async (ctx: ICTXGet<{}, IUserSchema[]>): Promise<void> => {
@@ -25,7 +25,7 @@ const userFind = async (ctx: ICTXGet<{}, IUserSchema[]>): Promise<void> => {
 
 /**
  *  追加
- *  @param ctx koaコンテンツpost
+ *  @param {ICTXPost<IUserSchema, ''>} ctx koaコンテンツpost
  */
 
 const userAdd = async (ctx: ICTXPost<IUserSchema, ''>): Promise<void> => {
@@ -47,7 +47,7 @@ const userAdd = async (ctx: ICTXPost<IUserSchema, ''>): Promise<void> => {
 
 /**
  *  更新
- *  @param ctx koaコンテンツput
+ *  @param {ICTXPut<IUserKey, IUserSchema, ''>} ctx koaコンテンツput
  */
 
 const userUpdate = async (ctx: ICTXPut<IUserKey, IUserSchema, ''>): Promise<void> => {
@@ -55,11 +55,15 @@ const userUpdate = async (ctx: ICTXPut<IUserKey, IUserSchema, ''>): Promise<void
 
   await users
     .updateOne({ id: ctx.params.id }, ctx.request.body)
-    .then((): void => {
-      ctx.body = {
-        code: 10015,
-        message: '更新成功',
-        result: '',
+    .then((res): void => {
+      if (res.matchedCount === 0) {
+        ctx.app.emit('error', 10022, ctx)
+      } else {
+        ctx.body = {
+          code: 10015,
+          message: '更新成功',
+          result: '',
+        }
       }
     })
     .catch((): void => {
@@ -69,19 +73,23 @@ const userUpdate = async (ctx: ICTXPut<IUserKey, IUserSchema, ''>): Promise<void
 
 /**
  *  削除
- *  @param ctx koaコンテンツdelete
+ *  @param {ICTXDelete<IUserKey, ''>} ctx koaコンテンツdelete
  */
 
 const userDelete = async (ctx: ICTXDelete<IUserKey, ''>): Promise<void> => {
-  console.log(ctx.params.id)
+  ctx.app.emit('log', '削除')
 
   await users
     .deleteOne({ id: ctx.params.id })
-    .then((): void => {
-      ctx.body = {
-        code: 10017,
-        message: '削除成功',
-        result: '',
+    .then((res): void => {
+      if (res.deletedCount === 0) {
+        ctx.app.emit('error', 10022, ctx)
+      } else {
+        ctx.body = {
+          code: 10017,
+          message: '削除成功',
+          result: '',
+        }
       }
     })
     .catch((): void => {

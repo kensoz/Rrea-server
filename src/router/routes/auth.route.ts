@@ -1,6 +1,8 @@
 import Router from 'koa-router'
 import authController from '../../controllers/auth.controller'
 
+// ----- 管理者関連 router -----
+
 const authRouter = new Router()
 
 // ログイン

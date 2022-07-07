@@ -5,9 +5,10 @@ import type { ICTXPost } from '../types/ctx.type'
 import type { IDataRequest, IUserSchema, IDataResponse, ICount, IHandleDataResponse } from '../types/user.type'
 import type { IFormSchema } from '../types/form.type'
 
+// ----- データCRUD controller -----
 /**
  *  読み取り
- *  @param ctx koaコンテンツ
+ *  @param {ICTXPost<IDataRequest, IHandleDataResponse>} ctx koaコンテンツ
  */
 
 const dataController = async (ctx: ICTXPost<IDataRequest, IHandleDataResponse>): Promise<void> => {

@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import type { IUserSchema, IDataResponse, ICount, IHandleDataResponse } from '../../types/user.type'
 import type { IFormSchema } from '../../types/form.type'
 
+// ----- データCRUD controller unit -----
 /**
  *  graphql data 読み取り
  *  @param {Array} data ユーザーのデータ

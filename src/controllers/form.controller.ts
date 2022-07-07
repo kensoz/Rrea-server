@@ -5,9 +5,10 @@ import races from '../models/races.model'
 import type { ICTXGet } from '../types/ctx.type'
 import type { IFormSchema, IFormGroupResponse } from '../types/form.type'
 
+// ----- フォームCRUD controller -----
 /**
  *  読み取り
- *  @param {*} ctx koaコンテンツ
+ *  @param {ICTXGet<{}, IFormGroupResponse>} ctx koaコンテンツ
  */
 
 const formController = async (ctx: ICTXGet<{}, IFormGroupResponse>): Promise<void> => {

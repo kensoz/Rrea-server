@@ -9,6 +9,8 @@ import areaRouter from './routes/area.route'
 import nameRouter from './routes/name.route'
 import authRouter from './routes/auth.route'
 
+// ----- koa router -----
+
 const router = new Router()
 router.prefix(config.apiPrefix)
 

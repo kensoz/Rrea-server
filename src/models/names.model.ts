@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose'
 import type { IFormSchema } from '../types/form.type'
 
+// ----- ネーム -----
 // schema
 const schema = new Schema<IFormSchema>(
   {

@@ -3,6 +3,7 @@ import unit from './units/form.crud'
 import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
 import type { IFormSchema, IFormResponse, IFormKey } from '../types/form.type'
 
+// ----- 種族CRUD controller -----
 // 読み取り
 const raceFind = async (ctx: ICTXGet<{}, IFormResponse>): Promise<void> => {
   await unit.find(races, {}, ctx)

@@ -6,10 +6,12 @@ import { Context } from 'koa'
 import type { IFormSchema } from '../../types/form.type'
 import type { IDataRequest, IUserSchema, IDataResponse, IHandleDataResponse } from '../../types/user.type'
 
+// ----- データ resolvers -----
+
 /**
  *  graphql data 読み取り
  *  @param {Object} args areaCode, raceCode, nameCode, jobCode
- *  @param {*} ctx Context
+ *  @param {Context} ctx Context
  *  @return data & count
  */
 

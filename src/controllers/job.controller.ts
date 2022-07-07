@@ -3,6 +3,7 @@ import unit from './units/form.crud'
 import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
 import type { IFormSchema, IFormResponse, IFormKey } from '../types/form.type'
 
+// ----- 職務CRUD controller -----
 // 読み取り
 const jobFind = async (ctx: ICTXGet<{}, IFormResponse>): Promise<void> => {
   await unit.find(jobs, {}, ctx)

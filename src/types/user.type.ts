@@ -1,5 +1,10 @@
-// user collection
-// ユーザー関連のタイプ
+// ###########################
+// *
+// * user collection
+// * ユーザー関連のタイプ
+// *
+// ###########################
+
 // data取得apiのパラメータ
 export interface IDataRequest {
   areaCode: string
@@ -33,9 +38,7 @@ export interface ICount {
 }
 
 export type IUserKey = 'id'
-
 export type IDataResponse = Array<IUserSchema>
-
 export interface IHandleDataResponse {
   count: ICount[]
   user: IDataResponse

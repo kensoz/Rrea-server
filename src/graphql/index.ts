@@ -5,6 +5,7 @@ import typeDefs from './schema/typeDefs'
 import Koa, { DefaultState, DefaultContext, Context } from 'koa'
 import type { IDataRequest } from '../types/user.type'
 
+// ----- GraphQL -----
 // ctxのタイプ
 type ICTX = {
   ctx: Context
@@ -38,7 +39,7 @@ const server = new ApolloServer({
 
 /**
  *  apollo graphql起動
- *  @param {*} app koa app
+ *  @param {Koa<DefaultState, DefaultContext>} app koa app
  */
 
 const apolloServer = async (app: Koa<DefaultState, DefaultContext>): Promise<void> => {

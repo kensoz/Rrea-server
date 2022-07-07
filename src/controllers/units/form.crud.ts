@@ -2,6 +2,7 @@ import { Model } from 'mongoose'
 import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../../types/ctx.type'
 import type { IFormSchema, IFormResponse, IFormKey } from '../../types/form.type'
 
+// ----- フォーム類CRUD controller unit -----
 /**
  *  読み取り
  *  @param {Model<IFormSchema>}model フォーム類のコレクション
@@ -61,11 +62,15 @@ const update = async (model: Model<IFormSchema>, ctx: ICTXPut<IFormKey, IFormSch
 
   await model
     .updateOne(ctx.params, { text: ctx.request.body?.text })
-    .then((): void => {
-      ctx.body = {
-        code: 10015,
-        message: '更新成功',
-        result: '',
+    .then((res): void => {
+      if (res.matchedCount === 0) {
+        ctx.app.emit('error', 10022, ctx)
+      } else {
+        ctx.body = {
+          code: 10015,
+          message: '更新成功',
+          result: '',
+        }
       }
     })
     .catch((): void => {
@@ -84,11 +89,15 @@ const remove = async (model: Model<IFormSchema>, ctx: ICTXDelete<IFormKey, ''>):
 
   await model
     .deleteOne(ctx.params)
-    .then((): void => {
-      ctx.body = {
-        code: 10017,
-        message: '削除成功',
-        result: '',
+    .then((res): void => {
+      if (res.deletedCount === 0) {
+        ctx.app.emit('error', 10022, ctx)
+      } else {
+        ctx.body = {
+          code: 10017,
+          message: '削除成功',
+          result: '',
+        }
       }
     })
     .catch((): void => {

@@ -1,6 +1,6 @@
 {
   "name": "rrea-server",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "main": "dist/app.min.js",
   "author": "renhou",
   "license": "MIT",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.0",
     "@types/jest": "^27.4.1",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/koa": "^2.13.4",
     "@types/koa-logger": "^3.1.2",
     "@types/koa-router": "^7.4.4",
@@ -35,6 +36,8 @@
     "eslint-config-prettier": "^8.3.0",
     "graphql": "^16.3.0",
     "jest": "^27.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "koa-jwt": "^4.0.3",
     "koa-logger": "^3.2.1",
     "log4js": "^6.4.1",
     "mongoose": "^6.3.0",

@@ -2,7 +2,7 @@
 FROM node:16.3.0
 
 # 作者指定
-LABEL maintainer="kensoz"
+LABEL maintainer="renhou"
 
 # ワークスペース指定
 WORKDIR /usr/src/server

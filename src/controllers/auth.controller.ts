@@ -1,9 +1,17 @@
-import auths from '../models/auth.model'
 import dayjs from 'dayjs'
-import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
+import config from '../config'
+import auths from '../models/auth.model'
+import jsonwebtoken from 'jsonwebtoken'
 import type { IAuth, IAuthResponse } from '../types/auth.type'
+import type { ICTXPost, ICTXPut, ICTXDelete, ICTXGet } from '../types/ctx.type'
 
-// ログイン
+// ----- 管理者認証関係 controller -----
+
+/**
+ *  ログイン
+ *  @param {ICTXPost<IAuth, IAuth | ''>} ctx koaコンテンツ
+ */
+
 const login = async (ctx: ICTXPost<IAuth, IAuth | ''>): Promise<void> => {
   await auths
     .find({ id: ctx.request.body?.id }, { _id: 0 })
@@ -21,14 +29,30 @@ const login = async (ctx: ICTXPost<IAuth, IAuth | ''>): Promise<void> => {
 
       // ログイン成功
       if (ctx.request.body?.passWord === res[0].passWord) {
+        // token作成
+        const token: string = jsonwebtoken.sign(
+          {
+            id: res[0].id,
+            permission: res[0].permission,
+            exp: config.jwtLimitTime,
+          },
+          config.secret,
+        )
+
         ctx.body = {
           code: 10001,
           message: 'ログイン成功しました',
-          result: Object.assign(res[0], { passWord: '*****' }),
+          result: {
+            id: res[0].id,
+            passWord: '*****',
+            permission: res[0].permission,
+            time: res[0].time,
+            token: token,
+          },
         }
 
         ctx.app.emit('log', `ログイン--${ctx.request.body?.passWord}`)
-        auths.updateOne({ id: res[0].id }, { time: dayjs().format('YYYY-MM-DD HH:mm:ss') }).then()
+        auths.updateOne({ id: res[0].id }, { time: dayjs().format('YYYY-MM-DD HH:mm:ss'), token: token }).then()
       } else {
         // 無効なパスワード
         ctx.body = {
@@ -43,20 +67,34 @@ const login = async (ctx: ICTXPost<IAuth, IAuth | ''>): Promise<void> => {
     })
 }
 
-// ログアウト
-const logout = async (ctx: ICTXDelete<'id', ''>): Promise<void> => {
-  // TODO console占位，需要添加鉴权
-  await console.log(ctx.params.id)
-  ctx.app.emit('log', `ログアウト--${ctx.params.id}`)
+/**
+ *  ログアウト
+ *  @param {ICTXDelete<'id', ''>} ctx koaコンテンツ
+ */
 
-  ctx.body = {
-    code: 10008,
-    message: 'ログアウト成功しました',
-    result: '',
-  }
+const logout = async (ctx: ICTXDelete<'id', ''>): Promise<void> => {
+  await auths
+    .updateOne({ id: ctx.params.id }, { token: '' })
+    .then(() => {
+      console.log(`${ctx.params.id} is Logout`)
+      ctx.app.emit('log', `ログアウト--${ctx.params.id}`)
+
+      ctx.body = {
+        code: 10008,
+        message: 'ログアウト成功しました',
+        result: '',
+      }
+    })
+    .catch((): void => {
+      ctx.app.emit('error', 10004, ctx)
+    })
 }
 
-// すべての管理者情報取得
+/**
+ *  すべての管理者情報取得
+ *  @param {ICTXGet<{}, IAuthResponse>} ctx koaコンテンツ
+ */
+
 const authFind = async (ctx: ICTXGet<{}, IAuthResponse>): Promise<void> => {
   ctx.app.emit('log', '管理者情報取得')
 
@@ -74,7 +112,11 @@ const authFind = async (ctx: ICTXGet<{}, IAuthResponse>): Promise<void> => {
     })
 }
 
-// 管理者のパスワード修正
+/**
+ *  管理者のパスワード修正
+ *  @param {ICTXPut<'id', Record<'passWord', string>, ''>} ctx koaコンテンツ
+ */
+
 const authUpdate = async (ctx: ICTXPut<'id', Record<'passWord', string>, ''>): Promise<void> => {
   ctx.app.emit('log', '管理者のパスワード修正')
 

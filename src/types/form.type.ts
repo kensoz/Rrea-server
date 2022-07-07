@@ -1,5 +1,9 @@
-// area,name,race,job collection
-// フォーム関連のタイプ
+// ###########################
+// *
+// * area,name,race,job collection
+// * フォーム関連のタイプ
+// *
+// ###########################
 
 export interface IFormSchema {
   value: string
@@ -14,5 +18,4 @@ export interface IFormGroupResponse {
 }
 
 export type IFormKey = 'value'
-
 export type IFormResponse = Array<IFormSchema>
