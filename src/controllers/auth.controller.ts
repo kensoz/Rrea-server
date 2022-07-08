@@ -138,10 +138,11 @@ const authFind = async (ctx: ICTXGet<{}, IAuthResponse>): Promise<void> => {
  */
 
 const authUpdate = async (ctx: ICTXPut<'id', Record<'passWord', string>, ''>): Promise<void> => {
+  const password: string = await decrypt(ctx.request.body!.passWord)
   ctx.app.emit('log', '管理者のパスワード修正')
 
   await auths
-    .updateOne({ id: ctx.params.id }, { passWord: ctx.request.body?.passWord })
+    .updateOne({ id: ctx.params.id }, { passWord: password })
     .then((): void => {
       ctx.body = {
         code: 10000,
