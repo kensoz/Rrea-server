@@ -1,9 +1,9 @@
 import server from '../app'
 import { disconnectMongoDB } from '../database'
-import { errorTest } from './units/error.unit'
-import { authTest } from './units/auth.unit'
-import { graphqlTest } from './units/graphQL.unit'
-import { restfulTest } from './units/restful.unit'
+import { errorTest } from './unit/error.unit'
+import { authTest } from './unit/auth.unit'
+import { graphqlTest } from './unit/graphQL.unit'
+import { restfulTest } from './unit/restful.unit'
 
 // ----- 全テスト完了した後 -----
 // データベース & サーバーをクローズ
