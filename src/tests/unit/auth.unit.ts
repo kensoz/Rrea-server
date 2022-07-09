@@ -13,7 +13,7 @@ import type { IAuth } from '../../types/auth.type'
 // ###### auth api テスト ######
 export const authTest = (): void => {
   const post: IAuth = { id: 'guest', passWord: password }
-  const put: Record<'passWord', string> = { passWord: 'guest' }
+  const put: Record<'passWord', string> = { passWord: password }
 
   test('c-auth-info', async (): Promise<void> => {
     const res = await request(server).get('/api/v1/auth')
