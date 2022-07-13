@@ -11,8 +11,8 @@
     "rollup:build": "rollup -c",
     "build": "npm-run-all resetDist rollup:build",
     "start": "node .",
-    "test": "jest",
-    "test:cover": "jest --coverage"
+    "test": "set NODE_ENV=development&&jest",
+    "test:cover": "set NODE_ENV=development&&jest --coverage"
   },
   "dependencies": {
     "koa": "^2.13.4",

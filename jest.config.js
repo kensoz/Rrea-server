@@ -6,5 +6,12 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.ts'],
   transform: { '.(ts|tsx)': 'ts-jest' },
   testMatch: ['**/tests/**/*.spec.(ts|js|tsx)'],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/logs/',
+    '<rootDir>/docs/',
+    '<rootDir>/docker/',
+    '<rootDir>/src/types/',
+  ],
 }
