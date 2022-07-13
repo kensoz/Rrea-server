@@ -34,7 +34,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ ctx }) => ({ ctx }),
-  introspection: process.env.NODE_ENV === 'production' ? false : true,
+  introspection: process.env.NODE_ENV === 'development' ? true : false,
 })
 
 /**

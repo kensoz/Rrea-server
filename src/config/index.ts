@@ -5,30 +5,17 @@ import type { IConfig } from '../types/common.type'
 // 60 seconds * 60 minutes * 60 hour = 60 hour　←
 const time: number = Math.floor(Date.now() / 1000) + 60 * 60 * 60
 
-// 開発環境
-const development: IConfig = {
-  host: 7001,
+// コンフィグ
+const config: IConfig = {
+  host: process.env.NODE_ENV === 'development' ? 7001 : 7002,
   apiPrefix: '/api/v1',
-  dataBase: 'areadb',
-  dataBaseUrl: 'mongodb://127.0.0.1:27017/',
+  dataBase: process.env.NODE_ENV === 'development' ? 'areadb' : 'rrea',
+  dataBaseUrl:
+    process.env.NODE_ENV === 'development' ? 'mongodb://127.0.0.1:27017/' : 'mongodb://admin:admin@database:27017/',
   secret: 'maeda',
   jwtLimitTime: time,
   passwordKey: '1234123412ABCDEF',
   passwordIV: 'ABCDEF1234123412',
 }
 
-// 本番環境
-// docker環境
-const production: IConfig = {
-  host: 7001,
-  apiPrefix: '/api/v1',
-  dataBase: 'areadb',
-  dataBaseUrl: 'mongodb://admin:admin@database:27017/',
-  secret: 'maeda',
-  jwtLimitTime: time,
-  passwordKey: '1234123412ABCDEF',
-  passwordIV: 'ABCDEF1234123412',
-}
-
-const config: IConfig = process.env.NODE_ENV === 'production' ? production : development
 export default config

@@ -5,12 +5,12 @@
   "author": "renhou",
   "license": "MIT",
   "scripts": {
-    "dev": "set NODE_ENV=development && ts-node-dev --respawn src/app.ts",
+    "dev": "set NODE_ENV=development&& ts-node-dev --respawn src/app.ts",
     "resetLog": "rimraf logs/*",
     "resetDist": "rimraf dist/*",
     "rollup:build": "rollup -c",
     "build": "npm-run-all resetDist rollup:build",
-    "start": "set NODE_ENV=production && node .",
+    "start": "node .",
     "test": "jest",
     "test:cover": "jest --coverage"
   },

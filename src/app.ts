@@ -51,6 +51,6 @@ apolloServer(app)
 // サーバ起動と導出
 export default app.listen(config.host, async (): Promise<void> => {
   console.log(`server running on port ${config.host} 🚀`)
-  console.log('restful api & graphql server is ready 💪')
-  process.env.NODE_ENV === 'production' && logInfo('server start')
+  console.log(process.env.NODE_ENV === 'development' ? 'Rrea-server dev 💪' : 'Rrea-serverへようこそ！🤣')
+  process.env.NODE_ENV === 'development' || logInfo('production server start!')
 })
