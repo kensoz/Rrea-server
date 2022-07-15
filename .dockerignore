@@ -5,7 +5,6 @@ dist
 *.code-workspace
 .vscode
 logs
-dist
 docs
 coverage
 npm-debug.log
