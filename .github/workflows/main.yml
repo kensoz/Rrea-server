@@ -1,18 +1,24 @@
-name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
+# ----- Github Action -----
+name: Rrea-server
+# 実行のタイミング
+on: workflow_dispatch
+# on: [push]
+# 実行の流れ
 jobs:
-  test:
-    name: Test
+  deploy:
+    name: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-      - name: Install Dependencies
-        run: npm install
-      - name: Run Test
-        run: npm run test:cover
-      - name: Upload Coverage
-        uses: codecov/codecov-action@v1
+      - name: access server and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.TENCENT_UBUNTU_HOST }}
+          username: ${{ secrets.TENCENT_UBUNTU_USERNAME }}
+          password: ${{ secrets.TENCENT_UBUNTU_PASSWORD }}
+          port: ${{ secrets.TENCENT_UBUNTU_PORT }}
+          script: |
+            sudo su root
+            cd /root/Desktop/rrea/Rrea-server
+            git pull origin master
+            cd /root/Desktop/rrea
+            docker compose up -d --build
