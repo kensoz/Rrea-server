@@ -18,4 +18,4 @@ jobs:
           port: ${{ secrets.TENCENT_UBUNTU_PORT }}
           script: |
             sudo su root
-            echo "fuck your"
+            echo "fuck you"
