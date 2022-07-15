@@ -2,7 +2,7 @@
 
 ![Node](https://img.shields.io/badge/Node.js-v18.0.0-fb7185.svg?logo=&style=flat-square)  ![Coverage](https://img.shields.io/badge/Coverage-84.91%25-84CC16.svg?style=flat-square)  ![npm](https://img.shields.io/badge/npm-0.6.0-84CC16.svg?style=flat-square)  ![License](https://img.shields.io/badge/License-MIT-0284C7.svg?logo=&style=flat-square)
 
-Demo:  **[Client]() | [Admin]()**  ・  GitHub:  **[Client](https://github.com/kensoz/Rrea-client) | [Admin](https://github.com/kensoz/Rrea-admin) | [Client-Collection](https://github.com/kensoz/Rrea-client-collection)**
+Demo:  **[Client](http://rrea-client.live) | [Admin](http://rrea-admin.live)**  ・  GitHub:  **[Client](https://github.com/kensoz/Rrea-client) | [Admin](https://github.com/kensoz/Rrea-admin) | [Client-Collection](https://github.com/kensoz/Rrea-client-collection)**
 
 ##### Rrea-Serverとは
 
@@ -29,6 +29,12 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 - 🏭 rollup.js
 - 📦 Yarn
 - 🔻 RESTful API & GraphQL
+
+
+
+## システムアーキテクチャー
+
+![system](https://s2.loli.net/2022/07/15/62gMpWGVUJ3RPLs.jpg)
 
 
 
@@ -70,20 +76,6 @@ yarn start
 
 
 
-## システムアーキテクチャー
-
-TODO
-
-
-
-## プレビュー
-
-TODO
-
-
-
 ## 資料
 
 + [エラーコード対照表](https://github.com/kensoz/Rrea-server/blob/master/docs/error.md)
-+ [データについて]()
-+ [docker-compose.yml]()
