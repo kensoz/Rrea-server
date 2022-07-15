@@ -9,16 +9,10 @@ LABEL maintainer="renhou"
 WORKDIR /usr/src/Rrea-server
 
 # package.jsonとyarn.lockコピー
-COPY ["package.json", "yarn.lock", "./"]
-
-# インストール
-RUN yarn
+COPY ["dist", "./"]
 
 # ファイルコピー
 COPY . .
-
-# ビルド
-RUN yarn build
 
 # ポートの解放
 EXPOSE 7002
