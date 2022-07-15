@@ -9,7 +9,7 @@ LABEL maintainer="renhou"
 WORKDIR /usr/src/Rrea-server
 
 # package.jsonとyarn.lockコピー
-COPY ["dist", "./"]
+COPY ["package.json", "dist", "./"]
 
 # ファイルコピー
 COPY . .
