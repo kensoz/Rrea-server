@@ -1,6 +1,6 @@
 {
   "name": "rrea-server",
-  "version": "0.6.0",
+  "version": "2.0.0",
   "main": "dist/app.min.js",
   "author": "renhou",
   "license": "MIT",
