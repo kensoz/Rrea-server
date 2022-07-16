@@ -1,6 +1,6 @@
 # 🌞 Rrea-Server
 
-![Node](https://img.shields.io/badge/Node.js-v18.0.0-fb7185.svg?logo=&style=flat-square)  ![Coverage](https://img.shields.io/badge/Coverage-84.91%25-84CC16.svg?style=flat-square)  ![npm](https://img.shields.io/badge/npm-0.6.0-84CC16.svg?style=flat-square)  ![License](https://img.shields.io/badge/License-MIT-0284C7.svg?logo=&style=flat-square)
+![Node](https://img.shields.io/badge/Node.js-v18.0.0-fb7185.svg?logo=&style=flat-square)  ![Coverage](https://img.shields.io/badge/Coverage-84.91%25-84CC16.svg?style=flat-square)  ![npm](https://img.shields.io/badge/npm-2.0.0-84CC16.svg?style=flat-square)  ![License](https://img.shields.io/badge/License-MIT-0284C7.svg?logo=&style=flat-square)
 
 Demo:  **[Client](http://rrea-client.live) | [Admin](http://rrea-admin.live)**  ・  GitHub:  **[Client](https://github.com/kensoz/Rrea-client) | [Admin](https://github.com/kensoz/Rrea-admin) | [Client-Collection](https://github.com/kensoz/Rrea-client-collection)**
 
@@ -25,7 +25,7 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 - ⚡️ Koa.js
 - 💽 mangoDB + mongoose
 - 📑 Eslint + Prettier
-- 🔌 Jest（Coverage : **84.91%**）
+- 🔌 Jest
 - 🏭 rollup.js
 - 📦 Yarn
 - 🔻 RESTful API & GraphQL
@@ -34,7 +34,7 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 
 ## システムアーキテクチャー
 
-![system](https://s2.loli.net/2022/07/15/62gMpWGVUJ3RPLs.jpg)
+![system](https://s2.loli.net/2022/07/16/Y7BqVkciA9MCLQZ.jpg)
 
 
 
