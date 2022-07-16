@@ -1,0 +1,66 @@
+####################################################
+# * 
+# * Rrea docker-compose*
+# * by renhou 2022
+# * 
+# * https://docs.docker.com/compose/compose-file/
+# * 
+####################################################
+version: "3.8"
+
+# network
+networks:
+  rrea-network:
+    driver: bridge
+
+services:
+
+  ### client #################
+  client:
+    container_name: Rrea-client
+    build:
+      context: ./Rrea-client
+    ports:
+      - 127.0.0.1:7003:7003
+    restart: always
+    depends_on:
+      - admin
+    networks:
+      - rrea-network
+
+  ### admin #################
+  admin:
+    container_name: Rrea-admin
+    build:
+      context: ./Rrea-admin
+    ports:
+      - 127.0.0.1:7004:7004
+    restart: always
+    depends_on:
+      - server
+    networks:
+      - rrea-network
+
+  ### server #################
+  server:
+    container_name: Rrea-server
+    build:
+      context: ./Rrea-server
+    ports:
+      - 127.0.0.1:7002:7002
+    restart: always
+    depends_on:
+      - database
+    networks:
+      - rrea-network
+
+  ### database #################
+  database:
+    container_name: Rrea-database
+    build:
+      context: ./Rrea-database
+    ports:
+      - "127.0.0.1:27017:27017"
+    restart: always
+    networks:
+      - rrea-network
