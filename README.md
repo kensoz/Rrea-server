@@ -26,7 +26,7 @@ APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/ken
 - 💽 mangoDB + mongoose
 - 📑 Eslint + Prettier
 - 🔌 Jest
-- 🔩 GitHub Actions
+- 🔩 GitHub Actions + Codecov
 - 🏭 rollup.js
 - 📦 Yarn
 - 🔻 RESTful API & GraphQL
