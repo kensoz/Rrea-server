@@ -1,0 +1,381 @@
+[
+  {
+    "_id": "60cec3f9-84bd-446b-85a9-d5bd53e39e77",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "c/a-form-GraphQL",
+    "url": "http://localhost:7001/graphql",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-07-25T06:27:18.248Z",
+    "modified": "2022-07-25T06:27:18.248Z",
+    "headers": [],
+    "body": {
+      "type": "graphql",
+      "graphql": {
+        "query": "query Form {\r\n  code\r\n  message\r\n  area {\r\n    value\r\n    text\r\n  }\r\n  name {\r\n    value\r\n    text\r\n  }\r\n  race {\r\n    value\r\n    text\r\n  }\r\n  job {\r\n    value\r\n    text\r\n  }\r\n}",
+        "variables": ""
+      }
+    }
+  },
+  {
+    "_id": "504d99b0-3bae-4df9-9025-c82532096193",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "c-data-GraphQL",
+    "url": "http://localhost:7001/graphql",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-07-25T06:27:18.249Z",
+    "modified": "2022-07-25T06:27:18.249Z",
+    "headers": [],
+    "body": {
+      "type": "graphql",
+      "graphql": {
+        "query": "query Data($areaCode: String, $jobCode: [String], $nameCode: [String], $raceCode: [String]) {\r\n  code\r\n  message\r\n  data(areaCode: $areaCode, jobCode: $jobCode, nameCode: $nameCode, raceCode: $raceCode) {\r\n    count {\r\n      area\r\n      count\r\n      value\r\n    }\r\n    user {\r\n      id\r\n      name\r\n      nameSpell\r\n      nameCode\r\n      job\r\n      jobCode\r\n      race\r\n      raceCode\r\n      skill\r\n      photo\r\n      area\r\n      areaCode\r\n      YYYYMMDD\r\n      HHMMss\r\n    }\r\n  }\r\n}",
+        "variables": "{\r\n  \"areaCode\": \"\",\r\n  \"jobCode\": [],\r\n  \"nameCode\": [],\r\n  \"raceCode\": []\r\n}"
+      }
+    }
+  },
+  {
+    "_id": "bb3ba5c9-3d10-4a3b-95c5-ca0518d2602b",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "c/a-form",
+    "url": "http://localhost:7001/api/v1/form",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-07-25T06:27:18.250Z",
+    "modified": "2022-07-25T06:27:18.250Z",
+    "headers": []
+  },
+  {
+    "_id": "86b093a2-5a4d-4d23-a87c-4a21824c5e81",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "c-data",
+    "url": "http://localhost:7001/api/v1/data",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-07-25T06:27:18.251Z",
+    "modified": "2022-07-25T06:27:18.251Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "areaCode",
+        "value": "1",
+        "isDisabled": true
+      },
+      {
+        "name": "nameGroupCode",
+        "value": "0,1",
+        "isDisabled": true
+      },
+      {
+        "name": "jobCode",
+        "value": "1",
+        "isDisabled": true
+      },
+      {
+        "name": "raceCode",
+        "value": "",
+        "isDisabled": true
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n  \"areaCode\": \"\",\r\n  \"jobCode\": [],\r\n  \"nameCode\":[],\r\n  \"raceCode\": []\r\n}"
+    }
+  },
+  {
+    "_id": "214f779e-f4c8-4af4-83ac-f5fd120b3773",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-job-find",
+    "url": "http://localhost:7001/api/v1/job",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-07-25T06:27:18.252Z",
+    "modified": "2022-07-25T06:27:18.252Z",
+    "headers": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": ""
+    }
+  },
+  {
+    "_id": "315d6f39-68a1-4c86-a2c7-4fc987852c2a",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-job-add",
+    "url": "http://localhost:7001/api/v1/job",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2022-07-25T06:27:18.253Z",
+    "modified": "2022-07-25T06:27:18.253Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "value",
+        "value": "1",
+        "isDisabled": true
+      },
+      {
+        "name": "text",
+        "value": "laiba",
+        "isDisabled": true
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n    \"text\":\"iosエンジニア\",\r\n    \"value\":\"8\"\r\n}"
+    }
+  },
+  {
+    "_id": "8e5d8151-c257-4cef-873f-bdfbe7c253b1",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-job-update",
+    "url": "http://localhost:7001/api/v1/job/8",
+    "method": "PUT",
+    "sortNum": 70000,
+    "created": "2022-07-25T06:27:18.254Z",
+    "modified": "2022-07-25T06:27:18.254Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n    \"text\":\"andriodエンジニア\",\r\n    \"value\":\"8\"\r\n}"
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwicGVybWlzc2lvbiI6MSwiZXhwIjoxNjU3MzkwOTA3LCJpYXQiOjE2NTcxNzUxOTd9.QoXSx-HTFRBIisOd-TgkCC1Rz2eRLH-3qHJrBCH2Pok"
+    }
+  },
+  {
+    "_id": "f1916c35-eb01-486a-94e4-ff1ec3f065a4",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-job-delete",
+    "url": "http://localhost:7001/api/v1/job/8",
+    "method": "DELETE",
+    "sortNum": 80000,
+    "created": "2022-07-25T06:27:18.255Z",
+    "modified": "2022-07-25T06:27:18.255Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "value",
+        "value": "1",
+        "isDisabled": true
+      }
+    ],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwicGVybWlzc2lvbiI6MSwiZXhwIjoxNjU3MzkwOTA3LCJpYXQiOjE2NTcxNzUxOTd9.QoXSx-HTFRBIisOd-TgkCC1Rz2eRLH-3qHJrBCH2Pok"
+    }
+  },
+  {
+    "_id": "53f1344d-db09-42de-a933-3122b9686e76",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-race-find",
+    "url": "http://localhost:7001/api/v1/race",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2022-07-25T06:27:18.256Z",
+    "modified": "2022-07-25T06:27:18.256Z",
+    "headers": []
+  },
+  {
+    "_id": "1d798c12-1052-442b-b15a-9cae038713da",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-race-add",
+    "url": "http://localhost:7001/api/v1/race",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2022-07-25T06:27:18.258Z",
+    "modified": "2022-07-25T06:27:18.258Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n    \"text\":\"虫\",\r\n    \"value\":\"8\"\r\n}"
+    }
+  },
+  {
+    "_id": "45bae87a-332e-4d65-b043-de995aee3850",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-race-update",
+    "url": "http://localhost:7001/api/v1/race/8",
+    "method": "PUT",
+    "sortNum": 110000,
+    "created": "2022-07-25T06:27:18.259Z",
+    "modified": "2022-07-25T06:27:18.259Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n    \"text\":\"虫族\",\r\n    \"value\":\"8\"\r\n}"
+    }
+  },
+  {
+    "_id": "bfdb60cd-dcc4-46e7-860a-84e7beb52acc",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-race-delete",
+    "url": "http://localhost:7001/api/v1/race/8",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2022-07-25T06:27:18.260Z",
+    "modified": "2022-07-25T06:27:18.260Z",
+    "headers": []
+  },
+  {
+    "_id": "ca615783-7f73-403a-abbe-a2971708f417",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-user-find",
+    "url": "http://localhost:7001/api/v1/user",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2022-07-25T06:27:18.261Z",
+    "modified": "2022-07-25T06:27:18.261Z",
+    "headers": []
+  },
+  {
+    "_id": "3f5ac3f9-1ed6-4c02-ac40-3692a19ed5ae",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-user-add",
+    "url": "http://localhost:7001/api/v1/user",
+    "method": "POST",
+    "sortNum": 140000,
+    "created": "2022-07-25T06:27:18.262Z",
+    "modified": "2022-07-25T06:27:18.262Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\r\n    \"id\": \"00008\",\r\n    \"name\": \"韩旭\",\r\n    \"nameSpell\": \"hanxu\",\r\n    \"nameCode\": \"9\",\r\n    \"job\": \"リーダー\",\r\n    \"jobCode\": \"1\",\r\n    \"race\": \"その他\",\r\n    \"raceCode\": \"5\",\r\n    \"skill\": \"指導\",\r\n    \"photo\": \"-\"\r\n  }"
+    }
+  },
+  {
+    "_id": "9c3f0328-bd3a-4d43-aae2-92de3af36f77",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-user-update",
+    "url": "http://localhost:7001/api/v1/user/00008",
+    "method": "PUT",
+    "sortNum": 150000,
+    "created": "2022-07-25T06:27:18.263Z",
+    "modified": "2022-07-25T06:27:18.263Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\r\n    \"id\": \"00008\",\r\n    \"name\": \"韩旭\",\r\n    \"nameSpell\": \"hanxu\",\r\n    \"nameCode\": \"9\",\r\n    \"job\": \"リーダー\",\r\n    \"jobCode\": \"1\",\r\n    \"race\": \"その他\",\r\n    \"raceCode\": \"5\",\r\n    \"skill\": \"指導\",\r\n    \"photo\": \"--\"\r\n  }"
+    }
+  },
+  {
+    "_id": "986d1c61-af2c-47c4-b50b-78692349f74c",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-user-delete",
+    "url": "http://localhost:7001/api/v1/user/00008",
+    "method": "DELETE",
+    "sortNum": 160000,
+    "created": "2022-07-25T06:27:18.264Z",
+    "modified": "2022-07-25T06:27:18.264Z",
+    "headers": []
+  },
+  {
+    "_id": "41b02034-8824-4fa3-af58-65fdab4f952f",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-area-find",
+    "url": "http://localhost:7001/api/v1/area",
+    "method": "GET",
+    "sortNum": 170000,
+    "created": "2022-07-25T06:27:18.265Z",
+    "modified": "2022-07-25T06:27:18.265Z",
+    "headers": []
+  },
+  {
+    "_id": "4ecde13b-6aa5-4724-b71b-1a383f3396ad",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "a-name-find",
+    "url": "http://localhost:7001/api/v1/name",
+    "method": "GET",
+    "sortNum": 180000,
+    "created": "2022-07-25T06:27:18.266Z",
+    "modified": "2022-07-25T06:27:18.266Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "1",
+        "isDisabled": true
+      },
+      {
+        "name": "name",
+        "value": "lai",
+        "isDisabled": true
+      }
+    ]
+  },
+  {
+    "_id": "215cc4d7-7ceb-4c2b-b729-7e08b5681316",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "login",
+    "url": "http://localhost:7001/api/v1/auth",
+    "method": "POST",
+    "sortNum": 190000,
+    "created": "2022-07-25T06:27:18.267Z",
+    "modified": "2022-07-25T06:27:18.267Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": " { \"id\": \"admin\", \"passWord\": \"tongxiaolu\"}"
+    }
+  },
+  {
+    "_id": "742a7a7d-b913-474a-bdb3-e5910cc6e5ac",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "logout",
+    "url": "http://localhost:7001/api/v1/auth/adminc",
+    "method": "DELETE",
+    "sortNum": 200000,
+    "created": "2022-07-25T06:27:18.268Z",
+    "modified": "2022-07-25T06:27:18.268Z",
+    "headers": []
+  },
+  {
+    "_id": "18e901bb-646a-434d-a200-6728bc8b1480",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "auth-find",
+    "url": "http://localhost:7001/api/v1/auth",
+    "method": "GET",
+    "sortNum": 210000,
+    "created": "2022-07-25T06:27:18.269Z",
+    "modified": "2022-07-25T06:27:18.269Z",
+    "headers": []
+  },
+  {
+    "_id": "ab60ec8b-bdeb-478d-acf7-505261614b71",
+    "colId": "ab037a57-6a18-488b-ba42-ae8d818c63ee",
+    "containerId": "",
+    "name": "auth-change",
+    "url": "http://localhost:7001/api/v1/auth/admin",
+    "method": "PATCH",
+    "sortNum": 220000,
+    "created": "2022-07-25T06:27:18.270Z",
+    "modified": "2022-07-25T06:27:18.270Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "{\"passWord\": \"admin\"}"
+    }
+  }
+]
