@@ -1,9 +1,9 @@
 node_modules
 .DS_Store
-# dist
 *.local
 *.code-workspace
 .vscode
 logs
+dist
 # coverage
-docker
+# thunder-tests
