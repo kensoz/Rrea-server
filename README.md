@@ -6,15 +6,15 @@ Demo:  **[Client](http://rrea-client.live) | [Admin](http://rrea-admin.live)**  
 
 ##### Rrea-Serverとは
 
-メンバー位置と情報の管理システムのAPIサーバ(BE Server)です。\
-APIサーバ(Server)、[メンバー用サイト(Client)](https://github.com/kensoz/Rrea-client)、[管理者用サイト(Admin)](https://github.com/kensoz/Rrea-admin)にFEとBEを分けている仕組みです。
+メンバー情報管理システムのAPIサーバ(BE Server)です。  
+APIサーバ(Server)と[メンバー用サイト(Client)](https://github.com/kensoz/Rrea-client)、[管理者用サイト(Admin)](https://github.com/kensoz/Rrea-admin)にFEとBEを分けている仕組みです。
 
 ##### メイン機能
 
 + ユーザー認証&権限システム、JWT認証、パスワード暗号化
 + RESTful API & GraphQL提供
 + DB、エラー、ログ処理のサーバー側の基本機能
-+ Koa.jsプロジェクトTypeScript化
++ Koa.jsプロジェクトフルTypeScript化
 + rollup.jsによるバンドル、Jestによる自動テスト
 
 
@@ -82,5 +82,5 @@ yarn start
 + [エラーコード対照表](https://github.com/kensoz/Rrea-server/blob/master/docs/error.md)
 + [Docker-Compose.yml](https://github.com/kensoz/Rrea-server/blob/master/docs/docker-compose.yml)
 + [データ](https://github.com/kensoz/Rrea-server/tree/master/docs/Rrea-database)
-+ DockerでVue+Node(Koa)+Nginx+MongoDB環境を作る：[Qiita](https://qiita.com/kensoz/items/2fc0b707e91e6ec8920e)
-+ Rollup.jsによってNode.js/TSプロジェクトをバンドルと圧縮：[Qiita](https://qiita.com/kensoz/items/441c1f12eb61d137ee2c)
++ DockerでVue+Node(Koa)+Nginx+MongoDB環境を作る：[Qiita](https://qiita.com/kensoz/items/2fc0b707e91e6ec8920e) ・ [掘金](https://juejin.cn/post/7127105231086682149)
++ Rollup.jsによってNode.js/TSプロジェクトをバンドルと圧縮：[Qiita](https://qiita.com/kensoz/items/441c1f12eb61d137ee2c) ・ [掘金](https://juejin.cn/post/7130053864740356104) ・ [思否](https://segmentfault.com/a/1190000042295273)
