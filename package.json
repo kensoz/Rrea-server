@@ -64,6 +64,6 @@
     "typescript": "^4.5.5"
   },
   "simple-git-hooks": {
-    "pre-commit": "yarn format:check"
+    "pre-commit": "npx format:fix"
   }
 }
