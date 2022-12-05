@@ -10,10 +10,13 @@ import type { IFormSchema, IFormResponse, IFormKey } from '../../types/form.type
  *  @param {*} ctx koaコンテンツ
  */
 
+// Koa.jsのタイプ対応していないため
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const find = async (model: Model<IFormSchema>, condition: any = {}, ctx: ICTXGet<{}, IFormResponse>): Promise<void> => {
   ctx.app.emit('log', '読み取り')
 
   await model
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     .find(condition, { _id: 0 })
     .then((res): void => {
       ctx.body = {

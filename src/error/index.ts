@@ -7,7 +7,7 @@ import type { IResponse } from '../types/ctx.type'
 
 // デフォルトデータ
 let status: number = 500
-let body: IResponse = {
+const body: IResponse = {
   code: 9999,
   message: 'プログラムエラー',
   result: '',
@@ -19,7 +19,7 @@ let body: IResponse = {
  *  @param {Context} ctx koaコンテンツ
  */
 
-const error = async (code: number, ctx: Context): Promise<void> => {
+const error = (code: number, ctx: Context): void => {
   body.code = code
 
   switch (code) {

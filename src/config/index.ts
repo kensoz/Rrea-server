@@ -2,7 +2,7 @@ import type { IConfig } from '../types/common.type'
 
 // jwt認証制限時間
 // 60 seconds * 60 minutes = 1 hour
-// 60 seconds * 60 minutes * 60 hour = 60 hour　←
+// 60 seconds * 60 minutes * 60 hour = 60 hour ←
 const time: number = Math.floor(Date.now() / 1000) + 60 * 60 * 60
 
 // コンフィグ

@@ -5,4 +5,5 @@ module.exports = {
   proseWrap: 'preserve',
   singleQuote: true,
   trailingComma: 'all',
+  endOfLine: 'crlf',
 }

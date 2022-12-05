@@ -7,6 +7,8 @@ import { Context, Next } from 'koa'
  *  @param next Next = () => Promise<any>
  */
 
+// Koa.jsのタイプ対応していないため
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (ctx: Context, next: Next): Promise<any> => {
   return next().catch((err): void => {
     if (err.status === 401) {

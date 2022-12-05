@@ -12,7 +12,7 @@ import type { IFormSchema } from '../../types/form.type'
  */
 
 const dataHandle = (data: IDataResponse, area: IFormSchema[], code: string): IHandleDataResponse => {
-  let count: ICount[] = []
+  const count: ICount[] = []
   for (let i = 0; i < 5; i++) {
     count.push({ count: 0 })
   }

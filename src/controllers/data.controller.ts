@@ -2,7 +2,7 @@ import users from '../models/users.model'
 import areas from '../models/areas.model'
 import dataHandle from '../controllers/units/data.handle'
 import type { ICTXPost } from '../types/ctx.type'
-import type { IDataRequest, IUserSchema, IDataResponse, ICount, IHandleDataResponse } from '../types/user.type'
+import type { IDataRequest, IUserSchema, IDataResponse, IHandleDataResponse } from '../types/user.type'
 import type { IFormSchema } from '../types/form.type'
 
 // ----- データCRUD controller -----
