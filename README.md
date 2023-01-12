@@ -4,12 +4,12 @@
 
 Site:  **[Client](http://rrea-client.live) | [Admin](http://rrea-admin.live)**  ・  GitHub:  **[Client](https://github.com/kensoz/Rrea-client) | [Admin](https://github.com/kensoz/Rrea-admin) | [Client-Collection](https://github.com/kensoz/Rrea-client-collection)**
 
-##### Rrea-Serverとは
+## Rrea-Serverとは
 
 メンバー情報管理システムのAPIサーバ(BE Server)です。  
 APIサーバ(Server)と[メンバー用サイト(Client)](https://github.com/kensoz/Rrea-client)、[管理者用サイト(Admin)](https://github.com/kensoz/Rrea-admin)にFEとBEを分けている仕組みです。
 
-##### メイン機能
+## メイン機能
 
 + ユーザー認証&権限システム、JWT認証、パスワード暗号化
 + RESTful API & GraphQL提供
